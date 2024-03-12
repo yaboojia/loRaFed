@@ -1,0 +1,38 @@
+# model
+model_name: conv
+lr: 0.01
+rounds: 1000
+frc: 0.1
+device: cpu
+epoch: 2
+
+# dataset
+dataset: cifar100
+classes: 100
+iid: False
+beta: 0.1
+
+
+# client
+num_clients: 100
+batch_size: 32
+seed: 41
+
+# rate and unform
+probs:
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+submodel_rate:
+  - 1
+  - 0.5
+  - 0.25
+  - 0.125
+  - 0.0625
+
+# optimizer
+optimizer_name: SGD
+momentum: 0.9
+weight_decay: 5.0e-4

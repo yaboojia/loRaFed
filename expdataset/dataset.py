@@ -7,7 +7,7 @@ import omegaconf
 from omegaconf import DictConfig
 from torch.utils.data import DataLoader, random_split
 
-from dataset_preparation import _partition_data
+from .dataset_preparation import _partition_data
 
 
 def load_datasets(  # pylint: disable=too-many-arguments
@@ -70,5 +70,7 @@ if __name__ == '__main__':
     # conf = omegaconf.create(conf)
     # print(conf)
     trainloaders, valloaders, testset = load_datasets(conf, 10, 0, 16, 41)
-    print(trainloaders[0])
+    for batch in testset:
+        print(batch)
+        break
      

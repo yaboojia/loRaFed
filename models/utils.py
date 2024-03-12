@@ -13,6 +13,8 @@ class LoraConv(nn.Module):
 
 # 递归替换conv2d层为loraconv2d层
 def replace_model(module, rate):
+    if rate == 1:
+        return
     for name, child in module.named_children():
         if isinstance(child, nn.Conv2d):
             # 创建一个新的loraconv2d层，使用与原conv2d层相同的参数

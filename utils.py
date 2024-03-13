@@ -71,7 +71,11 @@ def full2lora(params: OrderedDict, ori_params: OrderedDict, rate: float) -> Orde
 
 
 def merge_list_params(params_list):
-    count = float(len(params_list))
+    # count = float(len(params_list))
+    count = 0.0
+    for p in params_list:
+        if p:
+            count += 1
     rparams = OrderedDict()
     for p in params_list:
         for k, v in p.items():

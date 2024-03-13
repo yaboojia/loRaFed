@@ -20,7 +20,7 @@ def replace_model(module, rate):
             # 创建一个新的loraconv2d层，使用与原conv2d层相同的参数
             cout, cin, m, n = child.weight.size()
             rank = int((cin*cout*m*n*rate) / (cout + cin*m*n))
-            print(f"{name} RANK is: {rank}")
+            # print(f"{name} RANK is: {rank}")
             loraconv = LoraConv(cin, cout, rank)
             # 将新的loraconv2d层替换原conv2d层
             setattr(module, name, loraconv)

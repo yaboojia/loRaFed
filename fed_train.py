@@ -18,7 +18,8 @@ def main():
 
     model_list = {}
     for rate in cfg['submodel_rate']:
-        model_list[str(rate)] = get_model(cfg['model_name'], cfg['classes'], rate).state_dict()
+        # model_list[str(rate)] = get_model(cfg['model_name'], cfg['classes'], rate).state_dict()
+        model_list[str(rate)] = OrderedDict()
     
     for i in range(cfg['rounds']):
         print(f"The {i+1} rounds:")

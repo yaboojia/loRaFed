@@ -1,3 +1,6 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 ## This is a respository for addressing heterorious client federate learning using LoRa.
 ## Capacity distribution
 
@@ -25,9 +28,9 @@ class LoraConv(nn.Module):
         return self.down_conv(self.up_conv(x))
 ```
 ### parameters and the calculation of rank
-$
+$$
 (inchannels + outchannels) * (kernel_m * kernel_n) * rate = (inchannels+rank) * (kernel_m * kernel_n) + (rank + outchannels) * (1*1)
-$
+$$
 
 ## conv2dLoRa -> conv2d
 up_conv.weight

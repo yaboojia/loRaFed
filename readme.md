@@ -58,7 +58,7 @@ down_bias = torch.zeros((down_weight.size(0)))
 ```
 
 ## experimnet
-| method | conv + cifar10 |  
+| method | conv + emnist |  
 | :----- | :------: | 
 | loRaFL | 0.52(Non-convergence)  |  
 | roll | 0.92  | 

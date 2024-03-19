@@ -58,11 +58,20 @@ class Conv(nn.Module):
         x = self.layer3(self.layer2(self.layer1(self.layer0(x, using_adapter), using_adapter), using_adapter), using_adapter)
         return self.linear(self.flatten(self.avgPool(x)))
 
+def conv(data_shape, hidden_size, classes_size, rank=4, model_rate=1, track=True):
+    # hidden_size = [int(model_rate * x) for x in hidden_size]
+    model = Conv(data_shape, hidden_size, classes_size, rank, model_rate, track)
+    model.apply(init_param)
+    return model
+
 
 if __name__ == '__main__':
     x = torch.rand((2, 3, 32, 32))
     # l = layer(3, 64, 4)
     # y = l(x, True)
-    model = Conv([3], [64, 128, 256, 512], 10, )
+    hidden = [64, 128, 256, 512]
+    data_shape = [3]
+    classes_size = 10
+    model = conv(data_shape, hidden, classes_size )
     y = model(x)
     print(y.size())
